@@ -1,0 +1,6 @@
+<div *ngIf="treeNode">
+  <pm-tree-child
+    *ngFor="let child of treeNode.children"
+    [node]="child"
+  ></pm-tree-child>
+</div>
