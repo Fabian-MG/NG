@@ -15,41 +15,7 @@ export class MenuItemsService {
 
   getMenuItems(): Observable<Array<MenuItem>> {
     return this.http.get<Array<MenuItem>>(this.menuItemsUrl).pipe(
-      tap((data) => {
-        const rootElement = {
-          app: 'STORE',
-          id: 'STORE#PRODUCTS',
-          image: 'ico.svg',
-          links: [],
-          name: 'ACCESORIOS PARA CABALLERO',
-          parent: null,
-          scope: 'MENU',
-          score: 900,
-          status: 'AC',
-          type: 'PRODUCTS',
-        };
-        let rootedData = [...data, rootElement];
-
-        const idMapping = rootedData.reduce((acc, el, i) => {
-          acc[el.id] = i;
-          return acc;
-        }, {});
-
-        let root;
-        rootedData.forEach((el) => {
-          // Handle the root element
-          if (el.parent === null) {
-            root = el;
-            return;
-          }
-          // Use our mapping to locate the parent element in our data array
-          const parentEl = data[idMapping[el.parent]];
-          // Add our current el to its parent's `children` array
-          parentEl.children = [...(parentEl.children || []), el];
-        });
-
-        console.log(root);
-      }),
+      tap(() => {}),
       catchError(this.handleError)
     );
   }

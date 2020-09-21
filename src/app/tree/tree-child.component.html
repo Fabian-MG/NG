@@ -1,12 +1,9 @@
-<div>
+<div class="m-item">
   <div>
-    <p>{{ node.data }}</p>
+    <p (click)="handleShow()"  [style.marginLeft.px]="currentLevel*15" >{{ node.name }} </p>
     <div>
-      <div>
-        <pm-tree-child
-          *ngFor="let child of node.children"
-          [node]="child"
-        ></pm-tree-child>
+      <div *ngIf="showChildren">
+        <pm-tree-child *ngFor="let child of node.children" [node]="child" [level]="currentLevel"></pm-tree-child>
       </div>
     </div>
   </div>

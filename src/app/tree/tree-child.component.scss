@@ -1,0 +1,13 @@
+.m-item {
+  cursor: pointer;
+
+  p {
+
+    transition: all 1s ease;
+
+    &:hover {
+      transform: translateX(10px);
+
+    }
+  }
+}

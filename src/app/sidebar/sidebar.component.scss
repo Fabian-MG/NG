@@ -1,0 +1,17 @@
+.sidebar {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+
+    width: 20vw;
+    height: 100vh;
+    background: #132743;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    font-size: 0.9rem;
+    flex-direction: column;
+    
+    padding: 10px;
+
+}

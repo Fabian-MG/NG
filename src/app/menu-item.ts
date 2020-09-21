@@ -9,5 +9,5 @@ export interface MenuItem {
     score: string, 
     image: string, 
     links: Array<string>,
-    children: any,
+    children?: Array<any>,
 }

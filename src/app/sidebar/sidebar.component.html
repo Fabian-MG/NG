@@ -1,1 +1,3 @@
-<p>sidebar works!</p>
+<div *ngIf="tree" class="sidebar">
+  <pm-tree-child *ngFor="let ch of tree.children" [node]="ch" [level]='level'></pm-tree-child>
+</div>

@@ -1,14 +1,23 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TreeNode } from '../tree-structure/tree-node';
 
 @Component({
-  selector: 'app-tree-child',
+  selector: 'pm-tree-child',
   templateUrl: './tree-child.component.html',
+  styleUrls: ['./tree-child.component.scss']
 })
 export class TreeChildComponent implements OnInit {
-  @Input() node: TreeNode<string>;
+  @Input() node: any;
+  @Input() level: number
+  currentLevel: number
+  showChildren: boolean = false
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.currentLevel = this.level + 1
+  }
+
+  handleShow(): void {
+    this.showChildren = !this.showChildren
+  }
 }
