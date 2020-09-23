@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="left-content-container">
+    <div class="brand-container" [ngClass]="{ hide: toggle }">
+      <img
+        class="brand-logo"
+        src="https://img.icons8.com/dusk/64/000000/blockchain-new-logo.png"
+      />
+      <a class="brand-name">Amazing App</a>
+    </div>
+    <button class="sidebar-toggler-btn" type="button" (click)="handleShow()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </button>
+  </div>
+
+  <div class="right-content-container" >
+    <input type="text" class="searchbar" placeholder="Search..." />
+    <div class="link-container">
+      <button class="link-btn"></button>
+      <button class="link-btn"></button>
+      <button class="link-btn"></button>
+    </div>
+  </div>
+</nav>

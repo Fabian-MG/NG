@@ -1,6 +1,6 @@
-<div class="m-item">
+<div class="menu-item">
   <div>
-    <p (click)="handleShow()"  [style.marginLeft.px]="currentLevel*15" >{{ node.name }} </p>
+    <h6 (click)="handleShow()" [style.marginLeft.px]="currentLevel*15">{{ node.name }} </h6>
     <div>
       <div *ngIf="showChildren">
         <pm-tree-child *ngFor="let child of node.children" [node]="child" [level]="currentLevel"></pm-tree-child>

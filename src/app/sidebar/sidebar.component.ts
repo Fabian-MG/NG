@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MenuItem } from '../menu-item';
 import { MenuItemsService } from '../menu-items.service';
 
 @Component({
-  selector: 'np-sidebar',
+  selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
   errorMessage: string = '';
   menuItems: Array<MenuItem>;
+  @Input() show: boolean;
 
   level = -1;
   tree: any;
