@@ -1,16 +1,17 @@
 <app-navbar (showSidebar)="handleSidebar($event)"></app-navbar>
 <div class="app">
+
+
   <app-sidebar [show]="toggle"></app-sidebar>
-  
-  
-  
+
+
   <div class="content-container" [ngClass]="{slide: !toggle}">
     <h1>Dashboard Page</h1>
-
     <div class="video-container">
       <iframe class="video" title="video" src="https://www.youtube.com/embed/g_W9af_CQDs" frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowFullScreen></iframe>
     </div>
-
   </div>
+
+
 </div>

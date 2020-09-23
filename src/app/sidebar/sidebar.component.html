@@ -2,4 +2,8 @@
   <div *ngIf="tree" class="sidebar">
     <pm-tree-child *ngFor="let ch of tree.children" [node]="ch" [level]='level'></pm-tree-child>
   </div>
+  <div class="sidebar-footer">
+    <h6>Logged in as:</h6>
+    <h5>Current User</h5>
+  </div>
 </div>
