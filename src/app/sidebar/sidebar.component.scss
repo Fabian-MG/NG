@@ -1,40 +1,102 @@
-.sidebar-container {
+$base-color: white;
+$second-color: white; //#212e51;
+$font-color: rgba(11, 45, 120, 0.961); //#616161;
 
-  width: 243px;
+// rgba(11, 45, 120, 0.961)
+
+
+.sidebar-container {
+  width: 220px;
   height: 100%;
-  background: #212e51;
+  background: $second-color;
   transition: all 2s ease;
+  display: flex;
+  flex-direction: column;
+
+  .user-profile-container {
+
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .user-profile-image {
+      border-radius: 100% !important;
+      width: 60px;
+      height: 65px;
+    }
+
+    .user-profile-info {
+      width: 100%;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .user-profile-name {
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-top: 2px;
+      }
+
+      .user-profile-role {
+        font-weight: 400;
+        margin-top: 2px;
+
+        font-size: 0.7rem;
+      }
+    }
+  }
 
   .sidebar {
-    padding: 30px 25px;
+    padding: 10px 10px;
     width: 100%;
-    height: 90%;
+    height: 70%;
   }
 
   .sidebar-footer {
     width: 100%;
-    height: 10%;
-    background: #16213e;
-    color: #676b7c;
+    height: 0%;
+    background: $base-color;
+    color: $font-color;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 10px 20px;
 
-      h6{
-        font-size: 0.75rem;
-        font-weight: bold;
-      }
+    h6 {
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
 
-      h5{
-        font-size: 1rem;
-        font-weight: bold;
-      }
-
+    h5 {
+      font-size: 1rem;
+      font-weight: bold;
+    }
   }
+
+  -webkit-box-shadow: 1px 5px 10px 1px #ccc;
+  -moz-box-shadow:    1px 5px 10px 1px #ccc; 
+  box-shadow:         1px 5px 10px 1px #ccc;
 
   &.hide {
     display: none;
     transition: display 2s ease;
   }
 }
+
+// @media only screen and (max-width: 870px) {
+//   .sidebar-container {
+//     transform: translateX(-100%) !important;
+//     transition: transform 1 ease;
+
+//     &.hide {
+//       display: block;
+//       transition: transform 1s ease;
+//       transform: translateX(100%);
+//       z-index: 1;
+//     }
+//   }
+// }

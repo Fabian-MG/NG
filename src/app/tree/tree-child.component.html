@@ -1,7 +1,7 @@
 <div class="menu-item">
   <div class="child-name-container" (click)="handleShow()">
     <span class='name' [style.marginLeft.px]="currentLevel*16"
-      [ngClass]="{lowlevel: currentLevel !== 0}">{{ node.name }} {{currentLevel}}.{{idx}}
+      [ngClass]="{lowlevel: currentLevel !== 0}">{{ displayName }}
     </span>
     <span class="arrow-container" [ngClass]="{clicked: showChildren}" *ngIf="node.children">
       <arrow-svg class="arrow-svg"></arrow-svg>

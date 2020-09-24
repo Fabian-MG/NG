@@ -1,7 +1,15 @@
+// $base-color: #16213e;
+// $second-color:#313757;
+// $font-color: #676b7c;
+
+$base-color: rgba(11, 45, 120, 0.961);
+$second-color:#383839;
+$font-color: rgba(240, 240, 240, 0.955); //#717172;
+
 .navbar {
-  background: #16213e;
-  padding: 0 20px;
-  height: 60px;
+  background: $base-color;
+  padding: 0 10px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
 
@@ -10,7 +18,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 30%;
+    width: 200px;
+    height: 75%;
 
     .brand-container {
       width: max-content;
@@ -18,27 +27,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 20px;
-
-
-      .brand-logo {
-        width: 45px;
-        height: 45px;
-        margin-right: 10px;
-        animation: spin 6s infinite linear;
-      }
+      margin-right: 95px;
 
       .brand-name {
         display: flex;
-        color: #676b7c;
+        color: $font-color;
         font-size: 1.2rem;
-        font-weight: bold;
+        font-weight: 400;
         cursor: pointer;
         text-decoration: none;
         transition: all 0.5s ease;
-    }
+      }
 
       &.hide {
+        margin: 0px;
+
         .brand-name {
           font-size: 0px;
           opacity: 0;
@@ -49,11 +52,10 @@
 
     .sidebar-toggler-btn {
       border: none;
-      background: #313757;
-      width: 45px;
-      height: 40px;
+      background: none;
+      width: 35px;
+      height: 22px;
 
-      padding: 8px 7px;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -63,53 +65,92 @@
       .bar {
         width: 80%;
         height: 2px;
-        background: #676b7c;
+        background: $font-color;
+      }
+
+      &:hover {
+        .bar {
+          background: white !important;
+          transition: all 0.5s ease;
+        }
       }
     }
   }
 
   .right-content-container {
-    width: 60%;
+    width: 50%;
+    height: 75%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 
     .searchbar {
       border: none;
       width: 40%;
-      height: 45px;
-      background: #313757;
-      color: #676b7c;
+      height: 100%;
+      background: $second-color;
+      color: $font-color;
       font-weight: bold;
       padding: 0 20px;
     }
 
-    .link-container {
-      width: 250px;
-      height: 45px;
+    .links-container {
+      width: 150px;
       display: flex;
-      justify-content: center;
+      padding: 0 10px;
+      align-items: center;
+      justify-content: space-around;
 
-      .link-btn {
-        width: 50px;
-        height: 100%;
-        margin: 0 5px;
-        border: none;
-        background: #313757;
+      .link-option {
+        width: max-content;
+        height: max-content;
+
+        &.new-alert {
+          &::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: rgb(226, 9, 9);
+            position: absolute;
+            border-radius: 50%;
+            transform: translate(1px, -2px);
+            transition: transform 0.5s ease;
+
+          }
+
+          &:hover {
+            &::after {
+              transform: translate(1px, -6px);
+              transition: transform 0.5s ease;
+            }
+          }
+        }
       }
     }
   }
 }
 
-@keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+
+
+button,
+input {
+  outline: none;
 }
 
-button, input{
-    outline: none;
+@media (max-width: 870px) {
+    .brand-container {
+      .brand-name {
+        display: none;
+      }
+
+      &.hide {
+        .brand-name {
+          display: none;
+        }
+      }
+    }
+
+  .right-content-container {
+    width: 50% !important;
+  }
 }
