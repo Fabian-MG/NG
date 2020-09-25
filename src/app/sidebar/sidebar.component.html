@@ -1,16 +1,30 @@
-<div class="sidebar-container" [ngClass]="{hide: !show}">
+<div class="sidebar-container fnt-blue" [ngClass]="{ hide: !show }">
   <div class="user-profile-container">
     <img
-    class="user-profile-image"
+      class="user-profile-image"
       src="https://firebasestorage.googleapis.com/v0/b/react-firebase-authentic-c75bb.appspot.com/o/eaaefb29-d439-4660-9070-df38aa884f5d%20(3).JPG?alt=media&token=e52d1bbd-76aa-4a0f-bbde-f09c2db44565"
-      alt="profile-picture" />
+      alt="profile-picture"
+    />
     <div class="user-profile-info">
       <span class="user-profile-name"> Fabian Miranda </span>
       <span class="user-profile-role">Front-end Developer</span>
     </div>
   </div>
   <div *ngIf="tree" class="sidebar">
-    <pm-tree-child *ngFor="let ch of tree.children; index as idx" [node]="ch" [level]='level'></pm-tree-child>
+    <pm-tree-child
+      *ngFor="let ch of tree.children; index as idx"
+      [node]="ch"
+      [level]="level"
+    ></pm-tree-child>
   </div>
-
+  <div class="footer">
+    <button class="logout-btn mn-color">
+      Logout
+      <img
+        class="logout-icon"
+        src="../../assets/logout.component.svg"
+        alt="logout-icon"
+      />
+    </button>
+  </div>
 </div>

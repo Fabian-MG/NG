@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MenuItem } from '../menu-item';
 
 @Component({
   selector: 'pm-tree-child',
@@ -27,6 +28,13 @@ export class TreeChildComponent implements OnInit {
     this.showChildren = !this.showChildren;
   }
 
+  searchParents(node: MenuItem): void {
+    if(this.node.parent === 'STORE#PRODUCTS') {
+      return;
+    }
+    console.log(node.id)
+    this.searchParents
+  }
 
   // private isInChildren(menuOpt: MenuOption, menuId: string): boolean {
   //   let found = false;

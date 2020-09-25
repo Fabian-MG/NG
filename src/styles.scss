@@ -1,5 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
+//rgba(11, 45, 120, 0.961)
+$main-color: rgba(12, 39, 96, 0.961);
 
+.mn-color {
+  background: $main-color;
+}
 
+.fnt-blue {
+  color: $main-color;
+}
+
+.option-icon {
+  fill: rgba(255, 255, 255, 0.818);
+  width: 20px;
+  height: 20px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    fill: white;
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+  }
+}
+
+.arrow-svg {
+  fill: $main-color;
+}
+
+.menu-icon {
+  width: 20px;
+  height: 20px;
+  fill: $main-color;
+}
+
+h1 {
+  color: white !important;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+h2 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

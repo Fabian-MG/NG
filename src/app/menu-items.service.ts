@@ -15,7 +15,6 @@ export class MenuItemsService {
 
   getMenuItems(): Observable<Array<MenuItem>> {
     return this.http.get<Array<MenuItem>>(this.menuItemsUrl).pipe(
-      tap(() => {}),
       catchError(this.handleError)
     );
   }

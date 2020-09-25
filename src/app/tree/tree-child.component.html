@@ -1,16 +1,31 @@
 <div class="menu-item">
   <div class="child-name-container" (click)="handleShow()">
-    <span class='name' [style.marginLeft.px]="currentLevel*16"
-      [ngClass]="{lowlevel: currentLevel !== 0}">{{ displayName }}
+    <span *ngIf="currentLevel === 0" class="icon-container">
+      <img class="menu-icon" [src]="node.icon" alt="icon" />
     </span>
-    <span class="arrow-container" [ngClass]="{clicked: showChildren}" *ngIf="node.children">
+    <span
+      class="name"
+      [style.marginLeft.px]="currentLevel * 16"
+      [ngClass]="{ lowlevel: currentLevel !== 0 }"
+      >{{ displayName }}
+    </span>
+    <span
+      class="arrow-container"
+      [ngClass]="{ clicked: showChildren }"
+      *ngIf="node.children"
+    >
       <arrow-svg class="arrow-svg"></arrow-svg>
     </span>
   </div>
 
   <div>
     <div *ngIf="showChildren">
-      <pm-tree-child *ngFor="let child of node.children; index as i" [node]="child" [level]="currentLevel" [idx]="i">
+      <pm-tree-child
+        *ngFor="let child of node.children; index as i"
+        [node]="child"
+        [level]="currentLevel"
+        [idx]="i"
+      >
       </pm-tree-child>
     </div>
   </div>
