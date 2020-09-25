@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   level = -1;
   tree: any;
 
+
   constructor(private menuItemService: MenuItemsService) {}
 
   ngOnInit(): void {
@@ -87,4 +88,6 @@ export class SidebarComponent implements OnInit {
 
     console.log(this.tree);
   }
+
+  
 }

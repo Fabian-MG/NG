@@ -1,18 +1,18 @@
 <app-navbar (showSidebar)="handleSidebar($event)"></app-navbar>
+
 <div class="app">
   <app-sidebar [show]="toggle"></app-sidebar>
-  
+
   <div class="content-container" [ngClass]="{ slide: !toggle }">
-    <div class="content-background">
-      <div class="background-top mn-color"></div>
-      <div class="background-bottom"></div>
-    </div>
+
+    <div class="background-top mn-color"></div>
     <div class="welcome">
       <h1>Welcome Back Fabian</h1>
       <h2>You have 24 new messages and 5 new notifications</h2>
     </div>
-    <div class="pages-content">
+    <div class="pages-content box-shadow">
       <div class="card-content"></div>
     </div>
+
   </div>
 </div>

@@ -3,9 +3,14 @@
 
 //rgba(11, 45, 120, 0.961)
 $main-color: rgba(12, 39, 96, 0.961);
+$font-color: white;
 
 .mn-color {
   background: $main-color;
+}
+
+.fnt-white{
+  color: white;
 }
 
 .fnt-blue {
@@ -49,7 +54,7 @@ h2 {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
   border-radius: 10px;
 }
 
@@ -62,4 +67,10 @@ h2 {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.box-shadow {
+  -webkit-box-shadow: 0px 0px 6px 1px rgb(120, 120, 120);
+  -moz-box-shadow: 0px 0px 6px 1px rgb(108, 108, 108);
+  box-shadow: 0px 0px 6px 1px rgb(86, 86, 86);
 }
