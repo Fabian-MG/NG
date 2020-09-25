@@ -1,28 +1,31 @@
-<nav class="navbar  mn-color">
+<nav class="navbar mn-color" [ngClass]="{ hide: toggle }">
   <div class="left-content-container">
-    <div class="brand-container" [ngClass]="{ hide: toggle }">
-
+    <div class="brand-container">
       <a class="brand-name">Sidebar</a>
     </div>
-    <button class="sidebar-toggler-btn" type="button" (click)="handleShow()">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </button>
   </div>
 
   <div class="right-content-container">
     <!-- <input type="text" class="searchbar" placeholder="Search..." /> -->
+    <div class="inputs-container">
+      <button class="sidebar-toggler-btn" type="button" (click)="handleShow()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </button>
+      <input class="searchbar" type="text" placeholder="Search..." />
+    </div>
+
     <div class="links-container">
-      <span class="link-option new-alert" > <a href="#">
-          <mail-svg></mail-svg>
-        </a></span>
-      <span class="link-option" > <a href="#">
-          <bell-svg></bell-svg>
-        </a></span>
-      <span class="link-option  new-alert" > <a href="#">
-          <config-svg></config-svg>
-        </a></span>
+      <span class="link-option new-alert">
+        <a href="#"> <mail-svg></mail-svg> </a
+      ></span>
+      <span class="link-option">
+        <a href="#"> <bell-svg></bell-svg> </a
+      ></span>
+      <span class="link-option new-alert">
+        <a href="#"> <config-svg></config-svg> </a
+      ></span>
     </div>
   </div>
 </nav>

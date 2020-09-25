@@ -6,13 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  toggle: boolean;
+  showSidebar: boolean;
 
   ngOnInit() {
-    this.toggle = true;
+    this.showSidebar = true;
   }
 
   handleSidebar(show: boolean): void {
-    this.toggle = show;
+    this.showSidebar = show;
+  }
+
+  hideSidebar():void {
+    this.showSidebar = !this.showSidebar
   }
 }

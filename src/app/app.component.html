@@ -1,10 +1,9 @@
 <app-navbar (showSidebar)="handleSidebar($event)"></app-navbar>
 
 <div class="app">
-  <app-sidebar [show]="toggle"></app-sidebar>
+  <app-sidebar [show]="showSidebar"></app-sidebar>
 
-  <div class="content-container" [ngClass]="{ slide: !toggle }">
-
+  <div class="content-container">
     <div class="background-top mn-color"></div>
     <div class="welcome">
       <h1>Welcome Back Fabian</h1>
@@ -14,5 +13,10 @@
       <div class="card-content"></div>
     </div>
 
+    <div
+      class="content-overlay"
+      [ngClass]="{ active: !showSidebar }"
+      (click)="hideSidebar()"
+    ></div>
   </div>
 </div>
