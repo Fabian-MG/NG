@@ -32,12 +32,14 @@ export class TreeChildComponent implements OnInit {
   currentLevel: number;
   showChildren: boolean = false;
   displayName: string;
+  productsLink: string;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
     this.currentLevel = this.level + 1;
     this.url = `products/${this.node.id}`;
+    this.productsLink = this.getNodeLink();
     this.displayName =
       this.node.name.charAt(0) + this.node.name.substring(1).toLowerCase();
   }
@@ -48,6 +50,11 @@ export class TreeChildComponent implements OnInit {
 
   navigateWithState(): void {
     this.router.navigateByUrl(this.url, { state: this.node });
+  }
+
+  getNodeLink(): string {
+    let nodeLink = this.node.links.find((link) => link.rel === 'products');
+    return nodeLink.href
   }
 
   isInChildren(menuOpt: any, menuId: string): boolean {

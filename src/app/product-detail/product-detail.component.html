@@ -1,4 +1,5 @@
 <div class="products-detail-page fl-column cn-center">
-  <h1 class="page-title"> {{ title }} </h1>
-  <div class="products-detail-content"></div>
+  <div class="products-detail-content" *ngFor="let product of products">
+      <app-product-item [product]="product"></app-product-item>
+  </div>
 </div>

@@ -11,27 +11,25 @@ import { MenuItemsService } from '../menu-items.service';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
-  title: string;
+  productsLink: string;
+  products: Array<any>
 
-  // constructor(
-  //   private route: ActivatedRoute,
-  //   private menuItemService: MenuItemsService,
-  //   private router: Router
-  // ) {}
 
-  // ngOnInit(): void {
-  //   this.title = this.route.snapshot.url[1].path
-  //   this.menuItemService.getProducts(this.title)
-  //   console.log(this.title)
-  // }
-
-  theRecord: any;
-
-  constructor(private _route: ActivatedRoute) {}
+  constructor(
+    private _route: ActivatedRoute,
+    private menuItemsService: MenuItemsService
+  ) {}
 
   ngOnInit() {
     this._route.params.subscribe((params) => {
-      this.title = params.state;
+      this.productsLink = params.state;
+      this.menuItemsService.getProducts(this.productsLink) .subscribe({
+        next: (data) => {
+          this.products = data.content.slice(1,10)
+          console.log(this.products)
+        }
+      });
     });
+    
   }
 }

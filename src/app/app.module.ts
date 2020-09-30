@@ -17,6 +17,7 @@ import { SvgMailComponent } from './navbar/svgs/mail.component';
 import { ProductsComponent } from './products/products.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductItemComponent } from './product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductsComponent,
     WelcomeComponent,
     ProductDetailComponent,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,

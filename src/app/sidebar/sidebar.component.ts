@@ -87,6 +87,6 @@ export class SidebarComponent implements OnInit {
       ];
     });
 
-    console.log(this.tree);
+    // console.log(this.tree);
   }
 }

@@ -6,11 +6,11 @@
 
     <!-- Change svg component -->
     <span *ngIf="currentLevel === 0" class="icon-container">
-      <i class="menu-icon" [ngClass]="node.icon" ></i>
+      <i class="menu-icon" [ngClass]="node.icon"></i>
     </span>
 
     <span class="name" [style.marginLeft.px]="currentLevel * 16" [ngClass]="{ lowlevel: currentLevel !== 0 }">
-      <a [routerLink]="[url, {state: node.name}]">{{ displayName }}</a>
+      <a [routerLink]="[url, {state: productsLink, title: node.name}]">{{ displayName }}</a>
     </span>
     <span class="arrow-container" [ngClass]="{ clicked: node.active }" *ngIf="node.children">
       <!-- <img class="arrow-svg" src="../../assets/arrow.component.svg" alt="arrow" /> -->

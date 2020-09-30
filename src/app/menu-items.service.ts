@@ -21,15 +21,8 @@ export class MenuItemsService {
       .pipe(catchError(this.handleError));
   }
 
-  getProducts(menuItemID: string) {
-    let productLink = '';
-    let menuItem: MenuItem
-    this.getMenuItems().subscribe({
-      next: (data) => {
-        menuItem = data.find((node) => node.id === menuItemID);
-        menuItem.links[0] 
-      },
-    });
+  getProducts(productsLink: string): Observable<any> {
+    return this.http.get<any>(productsLink).pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {
