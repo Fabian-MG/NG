@@ -3,20 +3,13 @@
 <div class="app">
   <app-sidebar [show]="showSidebar"></app-sidebar>
 
-  <div class="content-container">
+  <div class="content-container sc-color">
     <div class="background-top mn-color"></div>
-    <div class="welcome">
-      <h1>Welcome Back Fabian</h1>
-      <h2>You have 24 new messages and 5 new notifications</h2>
-    </div>
-    <div class="pages-content box-shadow">
-      <div class="card-content"></div>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
     </div>
 
-    <div
-      class="content-overlay"
-      [ngClass]="{ active: !showSidebar }"
-      (click)="hideSidebar()"
-    ></div>
+    <div class="content-overlay" [ngClass]="{ active: !showSidebar }" (click)="hideSidebar()"></div>
   </div>
 </div>

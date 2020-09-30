@@ -10,6 +10,7 @@ $font-color: rgba(240, 240, 240, 0.955); //#717172;
   padding: 0 10px;
   height: 50px;
   width: 100%;
+  transition: all 0.6s ease;
   display: flex;
   justify-content: space-between;
 
@@ -31,16 +32,17 @@ $font-color: rgba(240, 240, 240, 0.955); //#717172;
 
       .brand-name {
         display: flex;
-        color: $font-color;
+        color: $font-color !important;
         font-size: 1.2rem;
         font-weight: 400;
         cursor: pointer;
         text-decoration: none;
-        transition: all 0.5s ease;
+        transition: all 0.6s ease;
+        opacity: 1;
       }
     }
 
-  
+
   }
 
   .right-content-container {
@@ -49,8 +51,6 @@ $font-color: rgba(240, 240, 240, 0.955); //#717172;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    
 
     .inputs-container {
       display: flex;
@@ -66,7 +66,7 @@ $font-color: rgba(240, 240, 240, 0.955); //#717172;
         font-size: 1.2rem;
         color: white;
 
-        &::placeholder{
+        &::placeholder {
           color: white !important;
         }
       }
@@ -108,54 +108,111 @@ $font-color: rgba(240, 240, 240, 0.955); //#717172;
 
   &.hide {
 
-    .left-content-container{
-    display: none;
+    .left-content-container {
+      width: 0%;
+      transition: all 0s ease;
+
+      .brand-container {
+        width: 0%;
+        transition: all 0s ease;
+
+        .brand-name {
+          font-size: 0;
+          transition: all 0s ease;
+          opacity: 0;
+
+        }
+      }
     }
 
-    .right-content-container{
+    .right-content-container {
       width: 100%;
-      transition: all 0.5 ease;
+      transition: all 0.6s ease;
     }
   }
 }
 
 .sidebar-toggler-btn {
-  
+
   width: 35px;
   height: 22px;
   margin-left: 5px;
-
   border: none;
   background: none;
-
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-
-  
   transition: all 0.5s ease !important;
 
-  .bar {
-    width: 80%;
+  // .bar {
+  //   width: 80%;
+  //   height: 2px;
+  //   background: $font-color;
+  // }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 90%;
     height: 2px;
-    background: $font-color;
+    margin-top: 4px;
+    border-radius: 7px;
+    transition: all 0.3s ease;
+    background: white;
   }
 
-  &:hover {
-    .bar {
-      background: white !important;
-      transition: all 0.5s ease;
+  &.clicked {
+    .bar1 {
+      transform: rotate(-45deg) translate(-2px, 4px);
+    }
+
+    .bar2 {
+      opacity: 0;
+    }
+
+    .bar3 {
+      transform: rotate(45deg) translate(-5.5px, -8px);
     }
   }
 }
 
-button,
-input {
-  outline: none;
+
+.left-content-container,
+.brand-container {
+  transition: all 0.6s ease;
 }
 
 @media (max-width: 870px) {
+  .sidebar-toggler-btn {
+    .bar1 {
+      transform: rotate(-45deg) translate(-2px, 4px);
+    }
+
+    .bar2 {
+      opacity: 0;
+    }
+
+    .bar3 {
+      transform: rotate(45deg) translate(-5.5px, -8px);
+    }
+
+    &.clicked {
+      .bar1 {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+
+      .bar2 {
+        opacity: 1;
+      }
+
+      .bar3 {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+    }
+  }
+
+
   .navbar {
     .left-content-container {
       display: none;
@@ -168,8 +225,8 @@ input {
     .right-content-container {
       width: 100% !important;
 
-      .inputs-container{
-        .searchbar{
+      .inputs-container {
+        .searchbar {
           display: none;
         }
       }
@@ -177,3 +234,8 @@ input {
   }
 }
 
+
+button,
+input {
+  outline: none;
+}

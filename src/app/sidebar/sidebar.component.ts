@@ -15,7 +15,6 @@ export class SidebarComponent implements OnInit {
   level = -1;
   tree: any;
 
-
   constructor(private menuItemService: MenuItemsService) {}
 
   ngOnInit(): void {
@@ -40,6 +39,7 @@ export class SidebarComponent implements OnInit {
       links: [],
       icon: '',
       active: false,
+      isLeaf: false,
     };
 
     let rootedData = [...items, rootElement];
@@ -51,23 +51,24 @@ export class SidebarComponent implements OnInit {
 
     rootedData.forEach((node) => {
       node.active = false;
+      node.children ? (node.isLeaf = false) : (node.isLeaf = true);
 
       if (node.parent === 'STORE#PRODUCTS') {
         switch (node.id) {
           case 'STORE#PRODUCTS#GENRE#CABALLERO':
-            node.icon = '../../assets/man.component.svg';
+            node.icon = 'fa fa-user';
             break;
           case 'STORE#PRODUCTS#GENRE#DAMA':
-            node.icon = '../../assets/woman.component.svg';
+            node.icon = 'fa fa-female';
             break;
           case 'STORE#PRODUCTS#GENRE#JOVEN':
-            node.icon = '../../assets/teen.component.svg';
+            node.icon = 'fa fa-male';
             break;
           case 'STORE#PRODUCTS#GENRE#KIDS':
-            node.icon = '../../assets/kids.component.svg';
+            node.icon = 'fa fa-child';
             break;
           case 'STORE#PRODUCTS#GENRE#UNISEX':
-            node.icon = '../../assets/unisex.component.svg';
+            node.icon = 'fa fa-users';
             break;
           default:
             break;
@@ -78,7 +79,7 @@ export class SidebarComponent implements OnInit {
         this.tree = node;
         return;
       }
-      
+
       const parentEl: any = rootedData[idMapping[node.parent]];
       parentEl.children = [
         ...(parentEl.children ? parentEl.children : []),
@@ -88,6 +89,4 @@ export class SidebarComponent implements OnInit {
 
     console.log(this.tree);
   }
-
-  
 }

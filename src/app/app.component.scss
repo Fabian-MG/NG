@@ -1,35 +1,30 @@
 .app {
   width: 100vw;
   display: flex;
-  overflow: hidden;
+  overflow: hidden !important;
   height: max-content;
 
   .content-container {
     width: 100%;
-    height: 92vh;
+    height: 93vh;
+    min-height: 600px;
+
     display: flex;
     overflow-y: auto;
     position: relative;
-    padding: 30px 30px;
     align-items: center;
     flex-direction: column;
 
-    .welcome {
-      margin-top: 10px;
-      width: 100%;
-    }
-
-    .pages-content {
+    .main-content {
       width: 100%;
       height: 100%;
-      border-radius: 20px;
-      background: none;
-      margin-top: 30px;
+      z-index: 1;
+      padding: 30px 15px 0 15px;
     }
 
     .background-top {
       top: 0;
-      z-index: -1;
+      z-index: 0;
       width: 100%;
       height: 30%;
       position: absolute;
@@ -59,8 +54,8 @@
   }
 }
 
-@media (max-width: 400px){
-  .content-container{
+@media (max-width: 400px) {
+  .content-container {
     height: 93.8vh !important;
   }
 }

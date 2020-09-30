@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
 
 //rgba(11, 45, 120, 0.961)
-$main-color: rgba(12, 39, 96, 0.961);
+$main-color: rgba(11, 45, 120, 0.961);
 $second-color: white;
 $font-color: white;
+$currentColor: red;
 
 .mn-color {
   background: $main-color;
@@ -14,12 +16,27 @@ $font-color: white;
   background: $second-color;
 }
 
-.fnt-white{
+.fnt-white {
   color: white;
+}
+
+.arrow {
+  width: 14px;
+  height: 14px;
+  fill: $main-color;
 }
 
 .fnt-blue {
   color: $main-color;
+}
+
+.submenu-icon {
+  width: 30px;
+}
+
+a {
+  color: $main-color !important;
+  text-decoration: none !important;
 }
 
 .option-icon {
@@ -35,14 +52,10 @@ $font-color: white;
   }
 }
 
-.arrow-svg {
-  fill: $main-color;
-}
-
 .menu-icon {
-  width: 20px;
+  width: 30px;
   height: 20px;
-  fill: $main-color;
+  color: $main-color;
 }
 
 h1 {
@@ -60,6 +73,7 @@ h2 {
 /* width */
 ::-webkit-scrollbar {
   width: 2px;
+  height: 2px;
   border-radius: 10px;
 }
 

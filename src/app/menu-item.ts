@@ -11,5 +11,6 @@ export interface MenuItem {
   links: Array<string>;
   icon?: string;
   children?: Array<any>;
-  active?: boolean
+  active?: boolean,
+  isLeaf?: boolean
 }

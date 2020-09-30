@@ -1,11 +1,26 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 import { MenuItem } from '../menu-item';
-import { Tree } from '../tree-structure/tree';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pm-tree-child',
   templateUrl: './tree-child.component.html',
   styleUrls: ['./tree-child.component.scss'],
+  animations: [
+    trigger('slide', [
+      state('up', style({ height: 0 })),
+      state('down', style({ height: '*' })),
+      transition('up <=> down', animate(200)),
+      transition('down <=> up', animate(200)),
+    ]),
+  ],
 })
 export class TreeChildComponent implements OnInit {
   @Input() node: any;
@@ -13,17 +28,16 @@ export class TreeChildComponent implements OnInit {
   @Input() idx? = 0;
   @Input() tree: MenuItem;
 
+  url: string;
   currentLevel: number;
   showChildren: boolean = false;
-
   displayName: string;
 
-  parents = [];
-
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.currentLevel = this.level + 1;
+    this.url = `products/${this.node.id}`;
     this.displayName =
       this.node.name.charAt(0) + this.node.name.substring(1).toLowerCase();
   }
@@ -32,22 +46,8 @@ export class TreeChildComponent implements OnInit {
     this.showChildren = !this.showChildren;
   }
 
-  // searchParents(node: MenuItem): void {
-  //   if(this.node.parent === 'STORE#PRODUCTS') {
-  //     return;
-  //   }
-  //   console.log(node.id)
-  //   this.searchParents
-  // }
-
-  getParents(node: any): void {
-    if (node.parent === null) {
-      return;
-    } else {
-      this.parents.push(node.parent);
-      console.log(this.parents);
-      this.getParents(node.parent);
-    }
+  navigateWithState(): void {
+    this.router.navigateByUrl(this.url, { state: this.node });
   }
 
   isInChildren(menuOpt: any, menuId: string): boolean {

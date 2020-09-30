@@ -1,19 +1,25 @@
 <div class="menu-item">
+
   <div class="child-name-container" (click)="handleShow(); isInChildren(tree,node.id)"
-    [ngClass]="{active: node.active && currentLevel === 0}" [ngClass]="{child: currentLevel  !== 0}">
+    [ngClass]="{child: currentLevel  !== 0}">
+
+
+    <!-- Change svg component -->
     <span *ngIf="currentLevel === 0" class="icon-container">
-      <img class="menu-icon" [src]="node.icon" alt="icon" />
+      <i class="menu-icon" [ngClass]="node.icon" ></i>
     </span>
-    <span class="name" [style.marginLeft.px]="currentLevel * 16"
-      [ngClass]="{ lowlevel: currentLevel !== 0 }">{{ displayName }}
+
+    <span class="name" [style.marginLeft.px]="currentLevel * 16" [ngClass]="{ lowlevel: currentLevel !== 0 }">
+      <a [routerLink]="[url, {state: node.name}]">{{ displayName }}</a>
     </span>
     <span class="arrow-container" [ngClass]="{ clicked: node.active }" *ngIf="node.children">
-      <img class="arrow-svg" src="../../assets/arrow.component.svg" alt="arrow"/>
+      <!-- <img class="arrow-svg" src="../../assets/arrow.component.svg" alt="arrow" /> -->
+      <arrow-svg class="arrow"></arrow-svg>
     </span>
   </div>
 
-  <div>
-    <div *ngIf="node.active">
+  <div class="children-container" [@slide]="node.active ? 'down' : 'up'" [ngClass]="{down: node.active}">
+    <div *ngIf="node.active" class="children">
       <pm-tree-child *ngFor="let child of node.children; index as i" [node]="child" [level]="currentLevel" [tree]="tree"
         [idx]="i">
       </pm-tree-child>

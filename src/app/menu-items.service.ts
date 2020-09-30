@@ -11,12 +11,25 @@ export class MenuItemsService {
   private menuItemsUrl =
     'https://cloud-rest.grabasaweb.mx/store/menus/products';
 
+  private menusCollection: Array<MenuItem>;
+
   constructor(private http: HttpClient) {}
 
   getMenuItems(): Observable<Array<MenuItem>> {
-    return this.http.get<Array<MenuItem>>(this.menuItemsUrl).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<Array<MenuItem>>(this.menuItemsUrl)
+      .pipe(catchError(this.handleError));
+  }
+
+  getProducts(menuItemID: string) {
+    let productLink = '';
+    let menuItem: MenuItem
+    this.getMenuItems().subscribe({
+      next: (data) => {
+        menuItem = data.find((node) => node.id === menuItemID);
+        menuItem.links[0] 
+      },
+    });
   }
 
   private handleError(err: HttpErrorResponse) {

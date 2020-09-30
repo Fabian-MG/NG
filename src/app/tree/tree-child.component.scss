@@ -4,8 +4,16 @@ $hover-color: rgb(11, 46, 120);
 
 .menu-item {
   cursor: pointer;
-  transition: display 1s ease !important;
   margin-top: 10px;
+
+  .children-container {
+    opacity: 0;
+    transition: opacity 0.6s ease; 
+    &.down {
+      opacity: 1;
+      transition: opacity 0.6s ease;
+    }
+  }
 
   .child-name-container {
     width: 100%;
@@ -14,15 +22,14 @@ $hover-color: rgb(11, 46, 120);
     padding: 0 5px;
     border-radius: 5px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
 
     &.child {
-      width: 80%;
-      margin-left: 30px;
+      padding-left: 20px;
 
       .name {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
       }
     }
 
@@ -36,7 +43,6 @@ $hover-color: rgb(11, 46, 120);
     .name {
       font-size: 0.95rem;
       width: max-content;
-      height: min-content;
       font-weight: 600;
       padding-bottom: 5px;
       width: 60%;
