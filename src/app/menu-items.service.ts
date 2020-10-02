@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { MenuItem } from './menu-item';
 import { Observable, throwError } from 'rxjs';
@@ -11,15 +11,16 @@ export class MenuItemsService {
   private menuItemsUrl =
     'https://cloud-rest.grabasaweb.mx/store/menus/products';
 
-  private menusCollection: Array<MenuItem>;
+  menusCollection: Array<MenuItem>;
 
   constructor(private http: HttpClient) {}
 
   getMenuItems(): Observable<Array<MenuItem>> {
-    return this.http.get<Array<MenuItem>>(this.menuItemsUrl).pipe(
-      tap((data) => (this.menusCollection = data)),
-      catchError(this.handleError)
-    );
+    return this.http
+      .get<Array<MenuItem>>(this.menuItemsUrl)
+      .pipe(
+        tap(data => {this.menusCollection = data} ),
+        catchError(this.handleError));
   }
 
   getProducts(productsLink: string): Observable<any> {

@@ -24,8 +24,9 @@ export class ProductDetailComponent implements OnInit {
   state$: Observable<object>;
 
   ngOnInit() {
+
     this._route.params.subscribe((params) => {
-      console.log(this.router.routerState)
+      console.log('Getting products', this.menuItemsService.menusCollection);
       this.title = this._route.snapshot.paramMap.get('title');
       this.productsLink = this._route.snapshot.paramMap.get('link');
       this.menuItemsService.getProducts(this.productsLink).subscribe({
