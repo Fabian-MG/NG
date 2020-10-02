@@ -5,11 +5,16 @@
 //rgba(11, 45, 120, 0.961)
 $main-color: rgba(11, 45, 120, 0.961);
 $second-color: white;
-$font-color: white;
+$font-primary-color: white;
+$font-color: gray;
 $currentColor: red;
 
 .mn-color {
   background: $main-color;
+}
+
+.fnt-bold {
+  font-weight: 550;
 }
 
 .sc-color {
@@ -35,8 +40,12 @@ $currentColor: red;
 }
 
 a {
-  color: $main-color !important;
   text-decoration: none !important;
+  color: $main-color;
+  
+  &:hover {
+    color: $main-color;
+  }
 }
 
 .option-icon {

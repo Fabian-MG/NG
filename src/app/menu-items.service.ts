@@ -16,9 +16,10 @@ export class MenuItemsService {
   constructor(private http: HttpClient) {}
 
   getMenuItems(): Observable<Array<MenuItem>> {
-    return this.http
-      .get<Array<MenuItem>>(this.menuItemsUrl)
-      .pipe(catchError(this.handleError));
+    return this.http.get<Array<MenuItem>>(this.menuItemsUrl).pipe(
+      tap((data) => (this.menusCollection = data)),
+      catchError(this.handleError)
+    );
   }
 
   getProducts(productsLink: string): Observable<any> {

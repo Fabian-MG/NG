@@ -9,6 +9,8 @@
   justify-content: space-between;
   margin: 15px;
   text-align: center;
+  transition: transform 0.3s ease;
+
 
   .product-name {
     width: 100%;
@@ -38,5 +40,10 @@
       width: 50%;
       height: 100%;
     }
+  }
+
+  &:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.02);
   }
 }

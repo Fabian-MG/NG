@@ -3,13 +3,13 @@
 <div class="app">
   <app-sidebar [show]="showSidebar"></app-sidebar>
 
-  <div class="content-container sc-color">
+  <div class="content-container">
     <div class="background-top mn-color"></div>
 
     <div class="main-content">
       <router-outlet></router-outlet>
     </div>
-
-    <div class="content-overlay" [ngClass]="{ active: !showSidebar }" (click)="hideSidebar()"></div>
+    <app-footer></app-footer>
+    
   </div>
 </div>

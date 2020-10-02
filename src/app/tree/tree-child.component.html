@@ -9,8 +9,10 @@
       <i class="menu-icon" [ngClass]="node.icon"></i>
     </span>
 
-    <span class="name" [style.marginLeft.px]="currentLevel * 16" [ngClass]="{ lowlevel: currentLevel !== 0 }">
-      <a [routerLink]="[url, {state: productsLink, title: node.name}]">{{ displayName }}</a>
+    <span class="name fnt-bold" [style.marginLeft.px]="currentLevel * 16" [ngClass]="{ lowlevel: currentLevel !== 0 }">
+      <a *ngIf="node.isLeaf" [routerLink]="[url, {link: productsLink, title: node.name}]"
+        [state]="{ data: 'hello' }">{{ displayName }}</a>
+      <a *ngIf="!node.isLeaf">{{ displayName }}</a>
     </span>
     <span class="arrow-container" [ngClass]="{ clicked: node.active }" *ngIf="node.children">
       <!-- <img class="arrow-svg" src="../../assets/arrow.component.svg" alt="arrow" /> -->

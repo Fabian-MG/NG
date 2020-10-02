@@ -1,0 +1,27 @@
+.footer-container {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  padding: 0px 15px;
+  align-items: center;
+  justify-content: space-between;
+
+
+  .footer-options {
+    width: 50%;
+    text-align: left;
+
+    a {
+      margin: 5px;
+    }
+  }
+
+  .footer-sign {
+    width: 50%;
+    text-align: right;
+  }
+
+  @media only screen and (max-width: 400px) {
+    font-size: 0.9rem;
+  }
+}
