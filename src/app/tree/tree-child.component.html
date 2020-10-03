@@ -15,8 +15,7 @@
       <a *ngIf="!node.isLeaf">{{ displayName }}</a>
     </span>
     <span class="arrow-container" [ngClass]="{ clicked: node.active }" *ngIf="node.children">
-      <!-- <img class="arrow-svg" src="../../assets/arrow.component.svg" alt="arrow" /> -->
-      <arrow-svg class="arrow"></arrow-svg>
+      <i class="arrow fa fa-chevron-right"></i>
     </span>
   </div>
 

@@ -1,6 +1,6 @@
 <div
   class="sidebar-container fnt-blue box-shadow sc-color"
-  [ngClass]="{ hide: !show }"
+  [ngClass]="{ show: !show }"
 >
   <div class="user-profile-container">
     <img
@@ -13,7 +13,7 @@
       <span class="user-profile-role">Front-end Developer</span>
     </div>
   </div>
-  <div *ngIf="tree" class="sidebar">
+  <div *ngIf="tree" class="sidebar-tree">
     <pm-tree-child
       *ngFor="let ch of tree.children; index as idx"
       [node]="ch"
@@ -22,5 +22,4 @@
     >
     </pm-tree-child>
   </div>
-
 </div>
